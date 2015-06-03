@@ -1,6 +1,8 @@
 require 'spec_helper'
+require 'fast_cache/threadsafe'
 
-describe FastCache::Cache do
+# An exact copy of the cache specs, better thread safe specs needed.
+describe FastCache::ThreadSafeCache do
 
   context 'empty cache' do
     subject { described_class.new(5, 60, 1) }
@@ -92,7 +94,7 @@ describe FastCache::Cache do
 
     describe '#inspect' do
       it do
-        subject.inspect.should eq '<FastCache::Cache count=3 max_size=3 ttl=60.0>'
+        subject.inspect.should eq '<FastCache::ThreadSafeCache count=3 max_size=3 ttl=60.0>'
       end
     end
 
