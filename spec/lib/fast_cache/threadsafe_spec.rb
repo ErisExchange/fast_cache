@@ -7,7 +7,7 @@ describe FastCache::ThreadSafeCache do
   context 'empty cache' do
     subject { described_class.new(5, 60, 1) }
 
-    its(:empty?) { should be_true }
+    its(:empty?) { should be_truthy }
     its(:length) { should eq 0 }
     its(:size) { should eq 0 }
     its(:count) { should eq 0 }
@@ -26,7 +26,7 @@ describe FastCache::ThreadSafeCache do
     end
     subject { @cache }
 
-    its(:empty?) { should be_false }
+    its(:empty?) { should be_falsey }
     its(:length) { should eq 3 }
     its(:size) { should eq 3 }
     its(:count) { should eq 3 }
@@ -138,7 +138,7 @@ describe FastCache::ThreadSafeCache do
         subject[:a].should be_nil
 
         subject.fetch(:a) do
-          true.should be_true
+          true.should be_truthy
           5
         end.should == 5
 
