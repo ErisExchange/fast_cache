@@ -1,7 +1,7 @@
 require 'thread'
-require 'fast_cache/cache'
+require 'fast_cache'
 
-class FastCache::CacheThreadSafe < FastCache::Cache
+class FastCache::ThreadSafeCache < FastCache::Cache
   include MonitorMixin
   def initialize(*args)
     super(*args)
